@@ -10,6 +10,7 @@ import (
 	"os"
 	//"time"
 	"time"
+	"runtime"
 )
 
 //一个妹子图片网站 请求的 header 必须带着 Referer 否则404 （比较简单的一种反爬虫策略）
@@ -18,6 +19,7 @@ var url = "http://www.umei.cc/"
 var c chan int
 
 func main() {
+	runtime.GOMAXPROCS(4)
 	spider()
 	//testDownLoad()
 }
